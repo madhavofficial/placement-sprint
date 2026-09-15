@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Placement Preparation — Sept 15–30</title>
+
+<style>
+    :root {
+        --bg: #f3f0e9;
+        --card: #ffffff;
+        --text: #20201d;
+        --muted: #716f68;
+
+        --coding: #315c58;
+        --coding-light: #e5efeb;
+
+        --cs: #426b83;
+        --cs-light: #e7eef2;
+
+        --apt: #a4662c;
+        --apt-light: #f5eadc;
+
+        --mock: #974d45;
+        --mock-light: #f4e5e1;
+
+        --revision: #596a3d;
+        --revision-light: #ebf0e2;
+
+        --border: #d8d3c9;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.55;
+    }
+
+    .container {
+        max-width: 1150px;
+        margin: auto;
+        padding: 30px 20px 60px;
+    }
+
+    /* HERO */
+
+    .hero {
+        background: #243c3a;
+        color: white;
+        border-radius: 4px;
+        padding: 42px;
+        margin-bottom: 25px;
+        box-shadow: 0 8px 18px rgba(40, 45, 38, 0.12);
+    }
+
+    .hero h1 {
+        margin: 0 0 8px;
+        font-size: 38px;
+        letter-spacing: 0;
+    }
+
+    .hero p {
+        margin: 6px 0;
+        opacity: .9;
+        font-size: 16px;
+    }
+
+    .hero .goal {
+        margin-top: 22px;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 2px;
+        padding: 16px 18px;
+    }
+
+    .hero strong {
+        color: #fff;
+    }
+
+    /* SUMMARY */
+
+    .summary {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+
+    .summary-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 18px;
+        box-shadow: none;
+    }
+
+    .summary-card .number {
+        font-size: 28px;
+        font-weight: 800;
+    }
+
+    .summary-card .label {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 3px;
+    }
+
+    .purple { color: var(--coding); }
+    .teal { color: var(--cs); }
+    .orange { color: var(--apt); }
+    .pink { color: var(--mock); }
+
+    /* DAILY TIMETABLE */
+
+    .daily-routine {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 24px;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 25px;
+        margin: 0 0 6px;
+    }
+
+    .section-subtitle {
+        color: var(--muted);
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .time-grid {
+        display: grid;
+        grid-template-columns: 110px 1fr 100px;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .time-grid > div {
+        padding: 13px 15px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .time-grid > div:nth-last-child(-n+3) {
+        border-bottom: none;
+    }
+
+    .time {
+        font-weight: 700;
+        color: var(--muted);
+        background: #fafbfc;
+    }
+
+    .block {
+        font-weight: 650;
+    }
+
+    .duration {
+        text-align: right;
+        color: var(--muted);
+        background: #fafbfc;
+        font-size: 13px;
+    }
+
+    .coding-label {
+        color: var(--coding);
+    }
+
+    .cs-label {
+        color: var(--cs);
+    }
+
+    .apt-label {
+        color: var(--apt);
+    }
+
+    .revision-label {
+        color: var(--revision);
+    }
+
+    /* PHASES */
+
+    .phase {
+        margin-top: 35px;
+    }
+
+    .phase-header {
+        border-radius: 3px;
+        padding: 22px 25px;
+        margin-bottom: 18px;
+        color: white;
+    }
+
+    .phase-header h2 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    .phase-header p {
+        margin: 5px 0 0;
+        opacity: .9;
+    }
+
+    .phase-1 {
+        background: #315c58;
+    }
+
+    .phase-2 {
+        background: #426b83;
+    }
+
+    .phase-3 {
+        background: #a4662c;
+    }
+
+    .phase-4 {
+        background: #974d45;
+    }
+
+    /* DAY CARDS */
+
+    .day {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        margin-bottom: 18px;
+        overflow: hidden;
+        box-shadow: none;
+    }
+
+    .day-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 23px;
+        background: #fafbff;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .day-header h3 {
+        margin: 0;
+        font-size: 19px;
+    }
+
+    .day-number {
+        font-size: 12px;
+        font-weight: 800;
+        color: white;
+        background: var(--coding);
+        border-radius: 30px;
+        padding: 6px 12px;
+    }
+
+    .day-content {
+        padding: 22px;
+    }
+
+    .columns {
+        display: grid;
+        grid-template-columns: 1.7fr 1fr 1fr;
+        gap: 18px;
+    }
+
+    .column {
+        border-radius: 3px;
+        padding: 17px;
+    }
+
+    .column h4 {
+        margin: 0 0 12px;
+        font-size: 15px;
+    }
+
+    .coding {
+        background: var(--coding-light);
+        border-left: 4px solid var(--coding);
+    }
+
+    .cs {
+        background: var(--cs-light);
+        border-left: 4px solid var(--cs);
+    }
+
+    .aptitude {
+        background: var(--apt-light);
+        border-left: 4px solid var(--apt);
+    }
+
+    .mock {
+        background: var(--mock-light);
+        border-left: 4px solid var(--mock);
+    }
+
+    .revision {
+        background: var(--revision-light);
+        border-left: 4px solid var(--revision);
+    }
+
+    ul {
+        margin: 7px 0 0;
+        padding-left: 20px;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+
+    .check {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .check li {
+        margin: 7px 0;
+    }
+
+    input[type="checkbox"] {
+        accent-color: var(--coding);
+        margin-right: 7px;
+        transform: translateY(1px);
+    }
+
+    .problem {
+        font-size: 14px;
+    }
+
+    .difficulty {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 800;
+        border-radius: 5px;
+        padding: 2px 6px;
+        margin-left: 4px;
+    }
+
+    .easy {
+        background: #d9f7df;
+        color: #167238;
+    }
+
+    .medium {
+        background: #fff0c2;
+        color: #966b00;
+    }
+
+    .hard {
+        background: #ffd9df;
+        color: #b42343;
+    }
+
+    .pattern {
+        margin-top: 13px;
+        padding: 10px 12px;
+        background: rgba(255,255,255,.65);
+        border-radius: 9px;
+        font-size: 13px;
+    }
+
+    /* RULES */
+
+    .rules {
+        background: #24302e;
+        color: white;
+        border-radius: 3px;
+        padding: 28px;
+        margin-top: 35px;
+    }
+
+    .rules h2 {
+        margin-top: 0;
+    }
+
+    .rule-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+    }
+
+    .rule {
+        background: rgba(255,255,255,.07);
+        border-radius: 12px;
+        padding: 14px;
+    }
+
+    .rule strong {
+        color: #b8d1c9;
+    }
+
+    /* TRACKER */
+
+    .tracker {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 25px;
+        margin-top: 35px;
+    }
+
+    .tracker table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .tracker th,
+    .tracker td {
+        text-align: left;
+        padding: 11px 10px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .tracker th {
+        color: var(--muted);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .footer {
+        text-align: center;
+        color: var(--muted);
+        padding: 35px 0 10px;
+        font-size: 14px;
+    }
+
+    @media(max-width: 850px) {
+        .summary {
+            grid-template-columns: repeat(2,1fr);
+        }
+
+        .columns {
+            grid-template-columns: 1fr;
+        }
+
+        .time-grid {
+            grid-template-columns: 85px 1fr 70px;
+        }
+    }
+
+    @media(max-width: 550px) {
+        .container {
+            padding: 15px 10px 40px;
+        }
+
+        .hero {
+            padding: 27px 22px;
+        }
+
+        .hero h1 {
+            font-size: 29px;
+        }
+
+        .summary {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .day-header {
+            align-items: flex-start;
+            gap: 10px;
+        }
+    }
+
+    a.problem-link {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dotted var(--muted);
+        transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    a.problem-link:hover {
+        color: var(--coding);
+        border-bottom: 1.5px solid var(--coding);
+    }
+
+    .column.cs a.problem-link:hover {
+        color: var(--cs);
+        border-bottom: 1.5px solid var(--cs);
+    }
+
+    .column.mock a.problem-link:hover {
+        color: var(--mock);
+        border-bottom: 1.5px solid var(--mock);
+    }
+
+    .column.revision a.problem-link:hover {
+        color: var(--revision);
+        border-bottom: 1.5px solid var(--revision);
+    }
+
+
+    .tuf-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        background: #fdf3ea;
+        color: #a4662c;
+        border: 1px solid #e2cfbc;
+        padding: 1px 6px;
+        border-radius: 4px;
+        margin-left: 6px;
+        vertical-align: middle;
+        transition: all 0.15s ease;
+    }
+    .tuf-badge:hover {
+        background: #a4662c;
+        color: #ffffff;
+        border-color: #a4662c;
+    }
+
+    .lc-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        background: #eef2f5;
+        color: #3b5a6f;
+        border: 1px solid #c9d6df;
+        padding: 1px 6px;
+        border-radius: 4px;
+        margin-left: 6px;
+        vertical-align: middle;
+        transition: all 0.15s ease;
+    }
+    .lc-badge:hover {
+        background: #3b5a6f;
+        color: #ffffff;
+        border-color: #3b5a6f;
+    }
+
+
+    .column.aptitude a.apt-link {
+        color: var(--apt);
+        text-decoration: none;
+        font-weight: 700;
+        border-bottom: 1px dotted var(--apt);
+        transition: all 0.15s ease;
+    }
+    .column.aptitude a.apt-link:hover {
+        color: #723e11;
+        border-bottom: 1.5px solid #723e11;
+    }
+
+    .column.aptitude a.apt-sublink {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px dotted var(--muted);
+        transition: all 0.15s ease;
+    }
+    .column.aptitude a.apt-sublink:hover {
+        color: var(--apt);
+        border-bottom: 1.5px solid var(--apt);
+    }
+
+
+    .strategy-note {
+        margin-top: 18px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 3px;
+        padding: 16px 20px;
+        font-size: 14.5px;
+        line-height: 1.6;
+    }
+
+    .strategy-note strong {
+        color: #fff;
+    }
+
+    .strategy-note ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+    }
+
+    .strategy-note li {
+        margin: 5px 0;
+    }
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1> Placement Preparation Roadmap</h1>
+
+    <p><strong>September 15 → September 30</strong> · 16-Day Intensive Sprint</p>
+    <p> Python 3 ·  DSA ·  MySQL ·  Core CS ·  Aptitude</p>
+
+    <div class="goal">
+        <strong> Main Goal</strong><br>
+        Refresh the major concepts first, then spend the majority of the
+        preparation time solving problems and developing pattern recognition
+        under placement-style time pressure.
+    </div>
+
+    <div class="strategy-note">
+        <strong>Key Strategy & Subject Priorities:</strong>
+        <ul>
+            <li><strong>DSA (Heavy Focus):</strong> The majority of your preparation effort must be on DSA and solving problems.</li>
+            <li><strong>DBMS / MySQL:</strong> You only need to know <em>which command to use where and in which scenario</em> (e.g. joins vs subqueries, window functions vs group by, when to index).</li>
+            <li><strong>Operating Systems:</strong> Study strictly for <em>MCQs</em>; focus primarily on <em>numericals</em> (CPU scheduling wait/turnaround times, Banker's algorithm safe sequence, page faults).</li>
+            <li><strong>Aptitude:</strong> First <em>learn the core concepts through worked examples</em>, then immediately dive into solving practice questions.</li>
+        </ul>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- PHASE 1 -->
+
+<section class="phase">
+
+<div class="phase-header phase-1">
+    <h2> PHASE 1 — Foundations</h2>
+    <p>Sept 15–20 · Learn/relearn the core building blocks</p>
+</div>
+
+
+<!-- DAY 1 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 15 — Python Primitives, Arrays & Math</h3>
+    <span class="day-number">DAY 1</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA — Main Priority</h4>
+
+<ul class="check">
+
+<li><label><input type="checkbox"> Python lists / arrays</label></li>
+<li><label><input type="checkbox"> Strings & immutability</label></li>
+<li><label><input type="checkbox"> Two pointers</label></li>
+<li><label><input type="checkbox"> Basic hashing</label></li>
+<li><label><input type="checkbox"> Prefix sums</label></li>
+<li><label><input type="checkbox"> Basic number manipulation</label></li>
+<li><label><input type="checkbox"> Sieve of Eratosthenes</label></li>
+
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/reverse-string/" target="_blank" class="problem-link">Reverse String</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/valid-palindrome/" target="_blank" class="problem-link">Valid Palindrome</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/reverse-integer/" target="_blank" class="problem-link">Reverse Integer</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/palindrome-number/" target="_blank" class="problem-link">Palindrome Number</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/rotate-array/" target="_blank" class="problem-link">Rotate Array</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/count-primes/" target="_blank" class="problem-link">Count Primes</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+<div class="pattern">
+<strong>Pattern:</strong> Arrays + two pointers + basic math
+</div>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL / CS</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> RDBMS basics</label></li>
+<li><label><input type="checkbox"> Primary key</label></li>
+<li><label><input type="checkbox"> Candidate key</label></li>
+<li><label><input type="checkbox"> Foreign key</label></li>
+<li><label><input type="checkbox"> CREATE TABLE</label></li>
+<li><label><input type="checkbox"> LEFT JOIN</label></li>
+</ul>
+
+<strong>SQL Practice</strong>
+
+<ul>
+<li><a href="https://leetcode.com/problems/combine-two-tables/" target="_blank" class="problem-link">Combine Two Tables</a></li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/ratio-and-proportion/" target="_blank" class="apt-sublink">Ratio & Proportion</a></li>
+<li>Compounded ratio</li>
+<li>Mean proportional</li>
+<li><a href="https://www.indiabix.com/aptitude/partnership/" target="_blank" class="apt-sublink">Partnership</a></li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/ratio-and-proportion/" target="_blank" class="apt-link">15 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 2 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 16 — Hashing, Dictionaries & Sets</h3>
+    <span class="day-number">DAY 2</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> Hash tables</label></li>
+<li><label><input type="checkbox"> dict / set</label></li>
+<li><label><input type="checkbox"> Counter</label></li>
+<li><label><input type="checkbox"> defaultdict</label></li>
+<li><label><input type="checkbox"> Frequency mapping</label></li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" class="problem-link">Contains Duplicate</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/two-sum/" target="_blank" class="problem-link">Two Sum</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/valid-anagram/" target="_blank" class="problem-link">Valid Anagram</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/first-unique-character-in-a-string/" target="_blank" class="problem-link">First Unique Character</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/intersection-of-two-arrays/" target="_blank" class="problem-link">Intersection of Two Arrays</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/group-anagrams/" target="_blank" class="problem-link">Group Anagrams</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/longest-consecutive-sequence/" target="_blank" class="problem-link">Longest Consecutive Sequence</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+<div class="pattern">
+<strong>Pattern:</strong> "Have I seen this before?" → HashMap / Set
+</div>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>DML</li>
+<li>TRUNCATE vs DROP</li>
+<li>GROUP BY</li>
+<li>HAVING</li>
+<li>SQL execution order</li>
+</ul>
+
+<strong>Practice:</strong>
+<a href="https://leetcode.com/problems/customers-who-never-order/" target="_blank" class="problem-link">Customers Who Never Order</a>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/time-and-work/" target="_blank" class="apt-sublink">Work & Time</a></li>
+<li>LCM method</li>
+<li>Efficiency</li>
+<li>Men-days</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/time-and-work/" target="_blank" class="apt-link">15–20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 3 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 17 — Recursion & Sorting</h3>
+    <span class="day-number">DAY 3</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> Recursion call stack</label></li>
+<li><label><input type="checkbox"> Base cases</label></li>
+<li><label><input type="checkbox"> Merge sort</label></li>
+<li><label><input type="checkbox"> Quick sort</label></li>
+<li><label><input type="checkbox"> Binary exponentiation</label></li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/fibonacci-number/" target="_blank" class="problem-link">Fibonacci Number</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/powx-n/" target="_blank" class="problem-link">Pow(x, n)</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/" target="_blank" class="problem-link">Check if Array Is Sorted and Rotated</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/sort-an-array/" target="_blank" class="problem-link">Sort an Array (Merge Sort)</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+<div class="pattern">
+<strong>Pattern:</strong> Divide → solve subproblem → combine
+</div>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>COUNT / SUM / AVG</li>
+<li>MIN / MAX</li>
+<li>GROUP BY</li>
+<li>WHERE vs HAVING</li>
+</ul>
+
+<strong>Practice:</strong>
+<a href="https://leetcode.com/problems/duplicate-emails/" target="_blank" class="problem-link">Duplicate Emails</a>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/pipes-and-cistern/" target="_blank" class="apt-sublink">Pipes & Cisterns</a></li>
+<li>Inflow / outflow</li>
+<li>Net efficiency</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/pipes-and-cistern/" target="_blank" class="apt-link">15 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 4 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 18 — Linked Lists</h3>
+    <span class="day-number">DAY 4</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> Node structure</label></li>
+<li><label><input type="checkbox"> Dummy node</label></li>
+<li><label><input type="checkbox"> Reverse linked list</label></li>
+<li><label><input type="checkbox"> Fast & slow pointers</label></li>
+<li><label><input type="checkbox"> Cycle detection</label></li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/design-linked-list/" target="_blank" class="problem-link">Design Linked List</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" class="problem-link">Delete Node in a Linked List</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" class="problem-link">Reverse Linked List</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/middle-of-the-linked-list/" target="_blank" class="problem-link">Middle of Linked List</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" class="problem-link">Linked List Cycle</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/linked-list-cycle-ii/" target="_blank" class="problem-link">Linked List Cycle II</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" class="problem-link">Merge Two Sorted Lists</a> <span class="difficulty easy">EASY</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>INNER JOIN</li>
+<li>LEFT JOIN</li>
+<li>RIGHT JOIN</li>
+<li>FULL OUTER JOIN concept</li>
+<li>Self joins</li>
+</ul>
+
+<strong>Practice:</strong>
+<a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/" target="_blank" class="problem-link">Employees Earning More Than Their Managers</a>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/time-and-distance/" target="_blank" class="apt-sublink">Speed / Distance / Time</a></li>
+<li>Relative speed</li>
+<li><a href="https://www.indiabix.com/aptitude/problems-on-trains/" target="_blank" class="apt-sublink">Trains</a></li>
+<li><a href="https://www.indiabix.com/aptitude/boats-and-streams/" target="_blank" class="apt-sublink">Boats & Streams</a></li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/time-and-distance/" target="_blank" class="apt-link">15–20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 5 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 19 — Stacks, Queues & Monotonic Stack</h3>
+    <span class="day-number">DAY 5</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Stack / LIFO</li>
+<li>Queue / FIFO</li>
+<li>deque</li>
+<li>Monotonic stack</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" class="problem-link">Valid Parentheses</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/implement-stack-using-queues/" target="_blank" class="problem-link">Implement Stack using Queues</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" class="problem-link">Implement Queue using Stacks</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/min-stack/" target="_blank" class="problem-link">Min Stack</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/next-greater-element-i/" target="_blank" class="problem-link">Next Greater Element I</a> <span class="difficulty easy">EASY</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>Subqueries</li>
+<li>IN</li>
+<li>EXISTS</li>
+<li><a href="https://leetcode.com/problems/second-highest-salary/" target="_blank" class="problem-link">Second Highest Salary</a></li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/verbal-reasoning/syllogism/" target="_blank" class="apt-sublink">Syllogisms</a></li>
+<li>Venn diagrams</li>
+<li>Possibility questions</li>
+<li>Either-or</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/verbal-reasoning/syllogism/" target="_blank" class="apt-link">20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 6 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 20 — Trees & Binary Search</h3>
+    <span class="day-number">DAY 6</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Binary tree representation</li>
+<li>Preorder</li>
+<li>Inorder</li>
+<li>Postorder</li>
+<li>Level order</li>
+<li>Binary search basics</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://leetcode.com/problems/binary-search/" target="_blank" class="problem-link">Binary Search</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/search-insert-position/" target="_blank" class="problem-link">Search Insert Position</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank" class="problem-link">Preorder Traversal</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" class="problem-link">Inorder Traversal</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" class="problem-link">Postorder Traversal</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" class="problem-link">Maximum Depth</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" class="problem-link">Level Order Traversal</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> Operating Systems</h4>
+
+<ul>
+<li>Process vs Thread</li>
+<li>Process states</li>
+<li>PCB</li>
+<li>Context switching</li>
+<li>CPU scheduling</li>
+<li>FCFS</li>
+<li>SJF</li>
+<li>Round Robin</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/logical-reasoning/number-series/" target="_blank" class="apt-sublink">Number Series</a></li>
+<li>Difference patterns</li>
+<li>Alternating series</li>
+<li>Squares / cubes</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/logical-reasoning/number-series/" target="_blank" class="apt-link">25 IndiaBIX Questions ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</section>
+
+
+<!-- PHASE 2 -->
+
+<section class="phase">
+
+<div class="phase-header phase-2">
+    <h2> PHASE 2 — Pattern-Based Problem Solving</h2>
+    <p>Sept 21–27 · Stop thinking in chapters; start thinking in patterns</p>
+</div>
+
+
+<!-- DAY 7 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 21 — Arrays: Kadane, Two Pointers & Prefix Sum</h3>
+    <span class="day-number">DAY 7</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Kadane's Algorithm</li>
+<li>Dutch National Flag</li>
+<li>Moore's Voting</li>
+<li>Two pointers</li>
+<li>Prefix sum + hashmap</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/kadanes-algorithm-maximum-subarray-sum-in-an-array/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Maximum Subarray (Kadane's)</a> <a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/sort-an-array-of-0s-1s-and-2s/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Sort Colors (0s, 1s, 2s)</a> <a href="https://leetcode.com/problems/sort-colors/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/find-the-majority-element-that-occurs-more-than-n-2-times/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Majority Element (> n/2)</a> <a href="https://leetcode.com/problems/majority-element/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/3-sum-find-triplets-that-add-up-to-a-zero/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">3Sum</a> <a href="https://leetcode.com/problems/3sum/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/arrays/count-subarray-sum-equals-k/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Subarray Sum Equals K</a> <a href="https://leetcode.com/problems/subarray-sum-equals-k/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> DBMS</h4>
+
+<ul>
+<li>Normalization</li>
+<li>1NF</li>
+<li>2NF</li>
+<li>3NF</li>
+<li>BCNF</li>
+<li>Functional dependencies</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/logical-reasoning/letter-and-symbol-series/" target="_blank" class="apt-sublink">Alphabet Series</a></li>
+<li>Alpha-numeric patterns</li>
+<li>EJOTY</li>
+<li>Reverse letter pairs</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/logical-reasoning/letter-and-symbol-series/" target="_blank" class="apt-link">20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 8 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 22 — Binary Search on Answer</h3>
+    <span class="day-number">DAY 8</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Rotated sorted arrays</li>
+<li>Lower / upper bound</li>
+<li>Binary search on answer</li>
+<li>Monotonic predicate</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/search-element-in-a-rotated-sorted-array/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Search in Rotated Sorted Array</a> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/first-and-last-occurrences-in-array/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">First and Last Position of Element</a> <a href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/minimum-in-rotated-sorted-array/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Find Minimum in Rotated Array</a> <a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/binary-search/koko-eating-bananas/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Koko Eating Bananas</a> <a href="https://leetcode.com/problems/koko-eating-bananas/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/arrays/capacity-to-ship-packages-within-d-days/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Capacity to Ship Packages</a> <a href="https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+<div class="pattern">
+<strong>Ask:</strong> "Can I check whether X is possible?"<br>
+If yes/no changes monotonically → Binary Search the answer.
+</div>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> OS</h4>
+
+<ul>
+<li>Deadlocks</li>
+<li>Mutual exclusion</li>
+<li>Hold & wait</li>
+<li>No preemption</li>
+<li>Circular wait</li>
+<li>Banker's algorithm</li>
+<li>Mutex vs semaphore</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/verbal-reasoning/seating-arrangement/" target="_blank" class="apt-sublink">Linear Seating</a></li>
+<li>Multi-attribute puzzles</li>
+<li>Two-case method</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/verbal-reasoning/seating-arrangement/" target="_blank" class="apt-link">3 Complete IndiaBIX Sets ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 9 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 23 — Sliding Window & Two Pointers</h3>
+    <span class="day-number">DAY 9</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Dynamic sliding window</li>
+<li>Expand / shrink</li>
+<li>Frequency maps</li>
+<li>At-most-K patterns</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Longest Substring Without Repeating Characters</a> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/sliding-window/max-consecutive-ones-iii/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Max Consecutive Ones III</a> <a href="https://leetcode.com/problems/max-consecutive-ones-iii/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/sliding-window/fruit-into-baskets/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Fruit Into Baskets</a> <a href="https://leetcode.com/problems/fruit-into-baskets/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/sliding-window/longest-repeating-character-replacement/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Longest Repeating Character Replacement</a> <a href="https://leetcode.com/problems/longest-repeating-character-replacement/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/minimum-window-substring/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Minimum Window Substring</a> <a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty hard">HARD</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>Window functions</li>
+<li>ROW_NUMBER</li>
+<li>RANK</li>
+<li>DENSE_RANK</li>
+<li>PARTITION BY</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li><a href="https://leetcode.com/problems/nth-highest-salary/" target="_blank" class="problem-link">Nth Highest Salary</a></li>
+<li><a href="https://leetcode.com/problems/department-highest-salary/" target="_blank" class="problem-link">Department Highest Salary</a></li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/verbal-reasoning/seating-arrangement/" target="_blank" class="apt-sublink">Circular Seating</a></li>
+<li>Facing center</li>
+<li>Facing outside</li>
+<li>Opposite positions</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/verbal-reasoning/seating-arrangement/" target="_blank" class="apt-link">3 Complete IndiaBIX Sets ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 10 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 24 — Advanced Linked Lists & Monotonic Stack</h3>
+    <span class="day-number">DAY 10</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Remove Nth node from end</li>
+<li>Fast / slow pointer spacing</li>
+<li>Monotonic stack</li>
+<li>Histogram width</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/remove-n-th-node-from-the-end-of-a-linked-list/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Remove Nth Node From End</a> <a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/merge-k-sorted-lists/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Merge k Sorted Lists</a> <a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty hard">HARD</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/next-greater-element-using-stack/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Daily Temperatures (Next Greater)</a> <a href="https://leetcode.com/problems/daily-temperatures/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/area-of-largest-rectangle-in-histogram/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Largest Rectangle in Histogram</a> <a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty hard">HARD</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> DBMS</h4>
+
+<ul>
+<li>B+ Tree indexing</li>
+<li>Clustered vs secondary index</li>
+<li>ACID</li>
+<li>Isolation levels</li>
+<li>Read Uncommitted</li>
+<li>Read Committed</li>
+<li>Repeatable Read</li>
+<li>Serializable</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/permutation-and-combination/" target="_blank" class="apt-sublink">Permutations & Combinations</a></li>
+<li>Fundamental counting principle</li>
+<li>Repeated letters</li>
+<li>Vowels together / separated</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/permutation-and-combination/" target="_blank" class="apt-link">20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 11 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 25 — Binary Trees & BSTs</h3>
+    <span class="day-number">DAY 11</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>LCA — Binary Tree</li>
+<li>LCA — BST</li>
+<li>BST invariant</li>
+<li>Valid BST range</li>
+<li>Tree BFS / DFS</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/calculate-the-diameter-of-a-binary-tree/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Diameter of Binary Tree</a> <a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/lowest-common-ancestor-for-two-given-nodes/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">LCA of Binary Tree</a> <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/lca-in-binary-search-tree/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">LCA of BST</a> <a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/check-if-a-tree-is-a-bst-or-bt/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Validate Binary Search Tree</a> <a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/right-left-view-of-binary-tree/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Binary Tree Right Side View</a> <a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> Computer Networks</h4>
+
+<ul>
+<li>OSI model</li>
+<li>TCP/IP model</li>
+<li>TCP vs UDP</li>
+<li>TCP 3-way handshake</li>
+<li>DNS resolution</li>
+<li>HTTP vs HTTPS</li>
+<li>TLS basics</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/permutation-and-combination/" target="_blank" class="apt-sublink">Combinations & Geometry</a></li>
+<li>Handshake problems</li>
+<li>Polygon diagonals</li>
+<li>Circular permutation</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/permutation-and-combination/" target="_blank" class="apt-link">20 IndiaBIX Practice Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 12 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 26 — Graphs: BFS, DFS & Topological Sort</h3>
+    <span class="day-number">DAY 12</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Adjacency list</li>
+<li>BFS</li>
+<li>DFS</li>
+<li>Connected components</li>
+<li>Grid traversal</li>
+<li>Cycle detection</li>
+<li>Topological sort</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/number-of-provinces/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Number of Provinces</a> <a href="https://leetcode.com/problems/number-of-provinces/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/number-of-islands/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Number of Islands</a> <a href="https://leetcode.com/problems/number-of-islands/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/rotton-oranges-min-time-to-rot-all-oranges-bfs/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Rotting Oranges</a> <a href="https://leetcode.com/problems/rotting-oranges/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Course Schedule (Cycle Detection)</a> <a href="https://leetcode.com/problems/course-schedule/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/course-schedule-i-and-ii-pre-requisite-tasks-topological-sort-g-24/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Course Schedule II (Topo Sort)</a> <a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> Operating Systems</h4>
+
+<ul>
+<li>Virtual memory</li>
+<li>Paging</li>
+<li>Page table</li>
+<li>Page faults</li>
+<li>FIFO replacement</li>
+<li>LRU</li>
+<li>Optimal replacement</li>
+<li>Belady's anomaly</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li><a href="https://www.indiabix.com/aptitude/probability/" target="_blank" class="apt-sublink">Probability</a></li>
+<li>Basic probability</li>
+<li>Complement rule ("At least 1")</li>
+<li>Cards</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/aptitude/probability/" target="_blank" class="apt-link">20 IndiaBIX Problems ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 13 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 27 — Dynamic Programming</h3>
+    <span class="day-number">DAY 13</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>When DP applies</li>
+<li>Overlapping subproblems</li>
+<li>Optimal substructure</li>
+<li>Recursion → memoization</li>
+<li>Memoization → tabulation</li>
+<li>Space optimization</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/dynamic-programming-climbing-stairs/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Climbing Stairs</a> <a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty easy">EASY</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">House Robber</a> <a href="https://leetcode.com/problems/house-robber/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/coin-change-2-dp-22/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Coin Change</a> <a href="https://leetcode.com/problems/coin-change/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/grid-unique-paths-count-paths-from-left-top-to-the-right-bottom-of-a-matrix/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Unique Paths</a> <a href="https://leetcode.com/problems/unique-paths/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/subset-sum-equal-to-target-dp-14/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Partition Equal Subset Sum</a> <a href="https://leetcode.com/problems/partition-equal-subset-sum/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+<div class="pattern">
+<strong>DP recipe:</strong><br>
+1. Define state → 2. Recurrence → 3. Base case →
+4. Memoize → 5. Tabulate → 6. Optimize
+</div>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> MySQL</h4>
+
+<ul>
+<li>High-frequency queries</li>
+<li>Duplicate emails</li>
+<li>Self joins</li>
+<li>CASE WHEN</li>
+<li>Conditional SQL logic</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li>Data Interpretation</li>
+<li><a href="https://www.indiabix.com/data-interpretation/table-charts/" target="_blank" class="apt-sublink">Tables</a></li>
+<li><a href="https://www.indiabix.com/data-interpretation/bar-charts/" target="_blank" class="apt-sublink">Bar Charts</a></li>
+<li>Percentage changes</li>
+<li>Cross multiplication</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/data-interpretation/table-charts/" target="_blank" class="apt-link">3 IndiaBIX Sets ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</section>
+
+
+<!-- PHASE 3 -->
+
+<section class="phase">
+
+<div class="phase-header phase-3">
+    <h2> PHASE 3 — Advanced Patterns + Fast Revision</h2>
+    <p>Sept 28 · Cover remaining high-value patterns without getting lost in theory</p>
+</div>
+
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 28 — Heaps, Greedy, LCS & Python OOP</h3>
+    <span class="day-number">DAY 14</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column coding">
+
+<h4> DSA</h4>
+
+<ul>
+<li>Priority queue</li>
+<li>heapq</li>
+<li>Min heap / max heap</li>
+<li>Kth largest</li>
+<li>Greedy reasoning</li>
+<li>Interval scheduling</li>
+<li>LCS revision</li>
+</ul>
+
+<strong>Practice</strong>
+
+<ul>
+<li class="problem"><a href="https://takeuforward.org/data-structure/kth-largest-smallest-element-in-an-array/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Kth Largest Element in an Array</a> <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/top-k-frequent-elements/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Top K Frequent Elements</a> <a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/merge-overlapping-sub-intervals/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Merge Intervals</a> <a href="https://leetcode.com/problems/merge-intervals/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/insert-interval/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Non-overlapping Intervals</a> <a href="https://leetcode.com/problems/non-overlapping-intervals/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+<li class="problem"><a href="https://takeuforward.org/data-structure/longest-common-subsequence-dp-25/" target="_blank" class="problem-link" title="Striver's A2Z Sheet Guide">Longest Common Subsequence</a> <a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" class="lc-badge" title="Solve on LeetCode">LeetCode ↗</a> <span class="difficulty medium">MEDIUM</span></li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> Python OOP</h4>
+
+<ul>
+<li>Encapsulation</li>
+<li>Abstraction</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Multiple inheritance</li>
+<li>MRO</li>
+<li>classmethod</li>
+<li>staticmethod</li>
+<li>Instance methods</li>
+</ul>
+
+</div>
+
+
+<div class="column aptitude">
+
+<h4> Aptitude</h4>
+
+<ul>
+<li>Data Interpretation</li>
+<li><a href="https://www.indiabix.com/data-interpretation/pie-charts/" target="_blank" class="apt-sublink">Pie Charts</a></li>
+<li>Caselets</li>
+<li>Percentage conversion</li>
+</ul>
+
+<label><input type="checkbox">
+<a href="https://www.indiabix.com/data-interpretation/pie-charts/" target="_blank" class="apt-link">3 IndiaBIX Sets ↗</a>
+</label>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</section>
+
+
+<!-- PHASE 4 -->
+
+<section class="phase">
+
+<div class="phase-header phase-4">
+    <h2> PHASE 4 — Mock Tests, Weak Spots & Final Consolidation</h2>
+    <p>Sept 29–30 · No major new learning. Perform.</p>
+</div>
+
+
+<!-- DAY 15 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 29 — Full Placement Mock #1</h3>
+    <span class="day-number">DAY 15</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column mock">
+
+<h4> 90-Min OA Simulation</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" class="problem-link">Coding Problem 1 — Sliding Window (LC 3)</a></label></li>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/number-of-islands/" target="_blank" class="problem-link">Coding Problem 2 — Graph / Tree (LC 200)</a></label></li>
+<li><label><input type="checkbox"> 10 Aptitude MCQs</label></li>
+<li><label><input type="checkbox"> 5 MySQL MCQs</label></li>
+<li><label><input type="checkbox"> 5 OS MCQs</label></li>
+<li><label><input type="checkbox"> STRICT 90-minute timer</label></li>
+</ul>
+
+<strong>Important:</strong>
+
+<p>
+Do not look up solutions during the mock.
+Treat it like the real OA.
+</p>
+
+</div>
+
+
+<div class="column revision">
+
+<h4> 3–3.5h Debrief</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> Identify every failed question</label></li>
+<li><label><input type="checkbox"> Classify failure</label></li>
+<li><label><input type="checkbox"> Re-solve from scratch</label></li>
+<li><label><input type="checkbox"> Record pattern</label></li>
+<li><label><input type="checkbox"> Record coding mistake</label></li>
+</ul>
+
+<strong>Failure Categories</strong>
+
+<ul>
+<li> Didn't know concept</li>
+<li> Didn't recognize pattern</li>
+<li> Coding mistake</li>
+<li> Edge case</li>
+<li> Complexity problem</li>
+</ul>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> CS + Aptitude</h4>
+
+<ul>
+<li>Top OS interview questions</li>
+<li>Top DBMS questions</li>
+<li><a href="https://www.indiabix.com/online-test/aptitude-test/" target="_blank" class="apt-sublink" style="color:var(--apt);font-weight:600;">30 Mixed Aptitude Mock Test ↗</a></li>
+<li>Rapid SQL revision</li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- DAY 16 -->
+
+<div class="day">
+
+<div class="day-header">
+    <h3> Sept 30 — Full Placement Mock #2 + Final Review</h3>
+    <span class="day-number">DAY 16</span>
+</div>
+
+<div class="day-content">
+
+<div class="columns">
+
+<div class="column mock">
+
+<h4> Final OA Simulation</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/3sum/" target="_blank" class="problem-link">Coding Problem 1 — Array / Two Pointer (LC 15)</a></label></li>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/course-schedule/" target="_blank" class="problem-link">Coding Problem 2 — Graph / DP (LC 207)</a></label></li>
+<li><label><input type="checkbox"> 20 mixed MCQs</label></li>
+<li><label><input type="checkbox"> Strict 90-minute timer</label></li>
+</ul>
+
+</div>
+
+
+<div class="column revision">
+
+<h4> Final Coding Consolidation</h4>
+
+<p>
+Re-code the following <strong>from scratch</strong>:
+</p>
+
+<ul>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" class="problem-link">Reverse Linked List</a></label></li>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" class="problem-link">Binary Tree Level Order</a></label></li>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" class="problem-link">Kadane's Algorithm</a></label></li>
+<li><label><input type="checkbox"> BFS</label></li>
+<li><label><input type="checkbox"> DFS</label></li>
+<li><label><input type="checkbox"> <a href="https://leetcode.com/problems/binary-search/" target="_blank" class="problem-link">Binary Search</a></label></li>
+<li><label><input type="checkbox"> Sliding Window</label></li>
+</ul>
+
+<p>
+<strong>Target:</strong> foundational algorithms should feel automatic.
+</p>
+
+</div>
+
+
+<div class="column cs">
+
+<h4> Final CS + Resume</h4>
+
+<ul class="check">
+<li><label><input type="checkbox"> OS revision</label></li>
+<li><label><input type="checkbox"> DBMS revision</label></li>
+<li><label><input type="checkbox"> CN revision</label></li>
+<li><label><input type="checkbox"> OOP revision</label></li>
+<li><label><input type="checkbox"> MySQL queries</label></li>
+<li><label><input type="checkbox"> Resume project bullets</label></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</section>
+
+
+<!-- MASTER TRACKER -->
+
+<section class="tracker">
+
+<h2 class="section-title"> Master Progress Tracker</h2>
+
+<p class="section-subtitle">
+Mark each day as you finish it. Don't restart the entire plan because
+one day goes badly — move the unfinished item into the next available slot.
+</p>
+
+<table>
+
+<thead>
+<tr>
+<th>Day</th>
+<th>Date</th>
+<th>Main DSA</th>
+<th>CS</th>
+<th>Aptitude</th>
+<th>Done</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>Sept 15</td>
+<td>Arrays + Math</td>
+<td>RDBMS / Keys</td>
+<td>Ratio</td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Sept 16</td>
+<td>Hashing</td>
+<td>SQL basics</td>
+<td>Work & Time</td>
+<td></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Sept 17</td>
+<td>Recursion + Sorting</td>
+<td>GROUP BY / HAVING</td>
+<td>Pipes</td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Sept 18</td>
+<td>Linked Lists</td>
+<td>SQL Joins</td>
+<td>Speed / Distance</td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Sept 19</td>
+<td>Stacks + Queues</td>
+<td>Subqueries</td>
+<td>Syllogisms</td>
+<td></td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Sept 20</td>
+<td>Trees + Binary Search</td>
+<td>OS</td>
+<td>Number Series</td>
+<td></td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Sept 21</td>
+<td>Array Patterns</td>
+<td>Normalization</td>
+<td>Alphabet Series</td>
+<td></td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Sept 22</td>
+<td>Binary Search on Answer</td>
+<td>Deadlocks</td>
+<td>Linear Seating</td>
+<td></td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Sept 23</td>
+<td>Sliding Window</td>
+<td>Window Functions</td>
+<td>Circular Seating</td>
+<td></td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Sept 24</td>
+<td>LL + Monotonic Stack</td>
+<td>Indexes + ACID</td>
+<td>P&C</td>
+<td></td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>Sept 25</td>
+<td>Trees + BST</td>
+<td>Networks</td>
+<td>P&C</td>
+<td></td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>Sept 26</td>
+<td>Graphs</td>
+<td>Virtual Memory</td>
+<td>Probability</td>
+<td></td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>Sept 27</td>
+<td>Dynamic Programming</td>
+<td>SQL Revision</td>
+<td>DI</td>
+<td></td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>Sept 28</td>
+<td>Heaps + Greedy</td>
+<td>Python OOP</td>
+<td>DI</td>
+<td></td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>Sept 29</td>
+<td> Mock #1</td>
+<td>CS Revision</td>
+<td>Mixed</td>
+<td></td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>Sept 30</td>
+<td> Mock #2 + Revision</td>
+<td>Final CS</td>
+<td>Formula Sheet</td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+
+</section>
+
+
+<!-- RULES -->
+
+<section class="rules">
+
+<h2> Rules for the 16-Day Sprint</h2>
+
+<div class="rule-grid">
+
+<div class="rule">
+<strong>01 — Don't binge lectures.</strong><br>
+Use Striver to understand the concept, then code. The goal is problem-solving,
+not lecture completion.
+</div>
+
+<div class="rule">
+<strong>02 — 15-minute rule.</strong><br>
+For a new problem, think seriously for ~10–15 minutes before looking at a hint
+or approach.
+</div>
+
+<div class="rule">
+<strong>03 — Never copy solutions.</strong><br>
+If you look at the solution, close it and write the implementation yourself.
+</div>
+
+<div class="rule">
+<strong>04 — Track failures.</strong><br>
+A problem you couldn't solve is more valuable for revision than one you solved
+immediately.
+</div>
+
+<div class="rule">
+<strong>05 — Pattern > Problem.</strong><br>
+After every important problem, ask: "What pattern was this testing?"
+</div>
+
+<div class="rule">
+<strong>06 — Coding gets priority.</strong><br>
+If time runs short, reduce aptitude/CS time before reducing DSA practice.
+</div>
+
+<div class="rule">
+<strong>07 — Don't chase 200 questions.</strong><br>
+10 properly understood problems are more useful than 30 problems whose
+solutions you copied.
+</div>
+
+<div class="rule">
+<strong>08 — Last 3 days are different.</strong><br>
+Stop accumulating theory. Start simulating the actual placement environment.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PATTERN CHEAT SHEET -->
+
+<section class="tracker">
+
+<h2 class="section-title"> DSA Pattern Recognition Cheat Sheet</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>If you see...</th>
+<th>Think...</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Need fast lookup / frequency</td>
+<td>HashMap / Set</td>
+</tr>
+
+<tr>
+<td>Sorted array + target</td>
+<td>Binary Search</td>
+</tr>
+
+<tr>
+<td>Minimum / maximum possible value + feasibility</td>
+<td>Binary Search on Answer</td>
+</tr>
+
+<tr>
+<td>Contiguous subarray / substring</td>
+<td>Sliding Window / Prefix Sum</td>
+</tr>
+
+<tr>
+<td>Pair / triplet in sorted data</td>
+<td>Two Pointers</td>
+</tr>
+
+<tr>
+<td>Next greater / smaller element</td>
+<td>Monotonic Stack</td>
+</tr>
+
+<tr>
+<td>Tree shortest level-wise traversal</td>
+<td>BFS / Queue</td>
+</tr>
+
+<tr>
+<td>Explore every path / component</td>
+<td>DFS</td>
+</tr>
+
+<tr>
+<td>Prerequisites / dependency ordering</td>
+<td>Topological Sort</td>
+</tr>
+
+<tr>
+<td>Repeated subproblems + optimal decisions</td>
+<td>Dynamic Programming</td>
+</tr>
+
+<tr>
+<td>Top K / continuously smallest/largest</td>
+<td>Heap / Priority Queue</td>
+</tr>
+
+<tr>
+<td>Maximum non-overlapping intervals</td>
+<td>Greedy + sort by end</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+
+<div class="footer">
+
+    <strong> Goal by September 30:</strong><br>
+    Don't aim to "finish DSA". Aim to see a placement problem,
+    recognize the pattern, formulate the approach, and code it under pressure.
+    <br><br>
+    <em>Striver → Learn → Solve → Fail → Understand → Re-solve → Repeat.</em>
+
+</div>
+
+</div>
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((cb, idx) => {
+            const key = 'placement_plan_cb_' + idx;
+            const saved = localStorage.getItem(key);
+            if (saved === 'true') {
+                cb.checked = true;
+            }
+            cb.addEventListener('change', () => {
+                localStorage.setItem(key, cb.checked);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
