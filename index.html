@@ -586,137 +586,125 @@
     }
 
 
-    /* DUAL PROFILE ACCOUNTABILITY BAR */
-    .accountability-bar {
-        background: #ffffff;
-        border: 1px solid var(--border);
-        border-radius: 4px;
-        padding: 12px 18px;
-        margin-bottom: 22px;
+    
+    /* INTEGRATED PARTNER TRACKER */
+    .hero-flex-row {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-wrap: wrap;
-        gap: 14px;
-        box-shadow: 0 2px 8px rgba(40, 45, 38, 0.06);
-    }
-
-    .accountability-group {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .acc-label {
-        font-size: 12.5px;
-        font-weight: 700;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-    }
-
-    .user-pill-btn {
-        font-family: Georgia, serif;
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 12px;
-        border-radius: 3px;
-        border: 1px solid var(--border);
-        background: #faf8f5;
-        color: var(--text);
-        cursor: pointer;
-        transition: all 0.12s ease;
-    }
-
-    .user-pill-btn:hover {
-        background: #f0ece1;
-    }
-
-    .user-pill-btn.active {
-        background: #243c3a;
-        color: #ffffff;
-        border-color: #243c3a;
-    }
-
-    .scores-group {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .score-chip {
-        background: #fdfbf7;
-        border: 1px solid var(--border);
-        border-radius: 3px;
-        padding: 4px 10px;
-        font-size: 12.5px;
-    }
-
-    .score-chip.madhav strong {
-        color: #243c3a;
-    }
-
-    .score-chip.mahika strong {
-        color: #426b83;
-    }
-
-    .sync-status-indicator {
-        font-size: 12px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-
-    .sync-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #10b981;
-    }
-
-    .sync-dot.busy {
-        background: #f59e0b;
-        animation: pulse 1s infinite;
-    }
-
-    .refresh-icon-btn {
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 3px;
-        padding: 3px 8px;
-        font-size: 11.5px;
-        color: var(--muted);
-        cursor: pointer;
-    }
-
-    .refresh-icon-btn:hover {
-        background: #faf8f5;
-        color: var(--text);
-    }
-
-    .read-only-banner {
-        display: none;
-        background: #e7eef2;
-        border: 1px solid #426b83;
-        border-left: 4px solid #426b83;
-        color: #1e3340;
-        padding: 10px 16px;
-        border-radius: 3px;
-        font-size: 13px;
+        gap: 20px;
         margin-bottom: 20px;
     }
 
-    .read-only-banner strong {
-        color: #12212b;
+    .hero-title-col {
+        flex: 1;
+        min-width: 280px;
     }
 
-    @keyframes pulse {
-        0% { opacity: 0.4; }
-        50% { opacity: 1; }
-        100% { opacity: 0.4; }
+    .hero-title-col h1 {
+        margin: 0 0 6px;
+        font-size: 34px;
+        letter-spacing: 0;
+    }
+
+    .hero-title-col p {
+        margin: 4px 0;
+        opacity: 0.9;
+        font-size: 15px;
+    }
+
+    .partner-card {
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        padding: 12px 16px;
+        min-width: 240px;
+    }
+
+    .partner-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 8px;
+    }
+
+    .partner-sync-indicator {
+        font-size: 11px;
+        font-weight: 500;
+        color: #6ee7b7;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .partner-sync-indicator.busy {
+        color: #fde047;
+    }
+
+    .partner-tab-group {
+        display: flex;
+        gap: 6px;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 3px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .partner-tab-btn {
+        flex: 1;
+        background: transparent;
+        border: 1px solid transparent;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 6px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: Georgia, serif;
+        font-size: 12.5px;
+        text-align: center;
+        transition: all 0.15s ease;
+    }
+
+    .partner-tab-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+    }
+
+    .partner-tab-btn.active {
+        background: rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+        font-weight: 700;
+        border-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-name {
+        display: block;
+        font-size: 13px;
+    }
+
+    .tab-score {
+        display: block;
+        font-size: 11px;
+        opacity: 0.85;
+        margin-top: 2px;
+    }
+
+    .partner-status-msg {
+        margin-top: 8px;
+        font-size: 11.5px;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+    }
+
+    .partner-status-msg em {
+        color: #fde047;
+        font-style: normal;
     }
     
 </style>
@@ -728,47 +716,37 @@
 <div class="container">
 
 
-    <!-- DUAL-PROFILE ACCOUNTABILITY BAR -->
-    <div class="accountability-bar">
-        <div class="accountability-group">
-            <span class="acc-label">My Profile:</span>
-            <button type="button" class="user-pill-btn" id="roleBtnMadhav" onclick="setMyIdentity('madhav')">Madhav</button>
-            <button type="button" class="user-pill-btn" id="roleBtnMahika" onclick="setMyIdentity('mahika')">Mahika</button>
-        </div>
-
-        <div class="accountability-group">
-            <span class="acc-label">Viewing:</span>
-            <button type="button" class="user-pill-btn" id="viewBtnMadhav" onclick="setViewTarget('madhav')">Madhav's Plan</button>
-            <button type="button" class="user-pill-btn" id="viewBtnMahika" onclick="setViewTarget('mahika')">Mahika's Plan</button>
-        </div>
-
-        <div class="scores-group">
-            <div class="score-chip madhav">
-                Madhav: <strong id="scoreMadhav">0 / 70</strong>
-            </div>
-            <div class="score-chip mahika">
-                Mahika: <strong id="scoreMahika">0 / 70</strong>
-            </div>
-            <div class="sync-status-indicator">
-                <span class="sync-dot" id="syncDot"></span>
-                <span id="syncText">Synced</span>
-                <button type="button" class="refresh-icon-btn" onclick="fetchCloudData(true)">Sync</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="read-only-banner" id="readOnlyBanner">
-        <strong>Transparency Mode (Read-Only):</strong> You are logged in as <span id="bannerMyName">Madhav</span>, viewing <span id="bannerTargetName">Mahika's</span> progress. Checkboxes cannot be altered here to prevent tampering with each other's work. Switch back to your own plan to edit.
-    </div>
+    
     
 <!-- HERO -->
 
 <section class="hero">
 
-    <h1> Placement Preparation Roadmap</h1>
+    <div class="hero-flex-row">
+        <div class="hero-title-col">
+            <h1>Placement Preparation Roadmap</h1>
+            <p>September 15 → September 30 · 16-Day Intensive Sprint</p>
+            <p style="font-size: 14px; opacity: 0.85;">Python 3 · DSA · MySQL · Core CS · Aptitude</p>
+        </div>
 
-    <p><strong>September 15 → September 30</strong> · 16-Day Intensive Sprint</p>
-    <p> Python 3 ·  DSA ·  MySQL ·  Core CS ·  Aptitude</p>
+        <div class="partner-card">
+            <div class="partner-card-header">
+                <span>Sprint Progress</span>
+                <span class="partner-sync-indicator" id="syncStatus">Synced</span>
+            </div>
+            <div class="partner-tab-group">
+                <button type="button" class="partner-tab-btn active" id="tabMadhav" onclick="switchProfile('madhav')">
+                    <span class="tab-name">Madhav</span>
+                    <span class="tab-score" id="scoreMadhav">0 / 70</span>
+                </button>
+                <button type="button" class="partner-tab-btn" id="tabMahika" onclick="switchProfile('mahika')">
+                    <span class="tab-name">Mahika</span>
+                    <span class="tab-score" id="scoreMahika">0 / 70</span>
+                </button>
+            </div>
+            <div class="partner-status-msg" id="statusMessage">Editing as <em>Madhav</em></div>
+        </div>
+    </div>
 
     <div class="goal">
         <strong> Main Goal</strong><br>
@@ -2445,189 +2423,182 @@ Stop accumulating theory. Start simulating the actual placement environment.
 </div>
  
 
-<script>
-    const CLOUD_ENDPOINTS = {
-        madhav: "https://api.restful-api.dev/objects/ff808181a09d98f701a0a34fa3fb0ad8",
-        mahika: "https://api.restful-api.dev/objects/ff808181a09d98f701a0a34fa5370ad9"
-    };
 
-    // State
-    let myIdentity = 'madhav';
-    let viewTarget = 'madhav';
-    let localCache = {
+
+<script>
+    const APP_KEY = "6m6k0hu7";
+    const KV_BASE = "https://keyvalue.immanuel.co/api/KeyVal";
+
+    // Device identity: who is using this device
+    let myDeviceUser = 'madhav';
+    const params = new URLSearchParams(window.location.search);
+    const qUser = params.get('user');
+    if (qUser && (qUser.toLowerCase() === 'mahika' || qUser.toLowerCase() === 'madhav')) {
+        myDeviceUser = qUser.toLowerCase();
+        localStorage.setItem('sprint_device_user', myDeviceUser);
+    } else {
+        myDeviceUser = localStorage.getItem('sprint_device_user') || 'madhav';
+    }
+
+    // Which profile is currently visible on screen
+    let currentViewing = myDeviceUser;
+    let cloudData = {
         madhav: {},
         mahika: {}
     };
     let isSaving = false;
 
-    // Detect user from URL query (?user=mahika or ?user=madhav)
-    const urlParams = new URLSearchParams(window.location.search);
-    const queryUser = urlParams.get('user');
-    if (queryUser && (queryUser.toLowerCase() === 'mahika' || queryUser.toLowerCase() === 'madhav')) {
-        myIdentity = queryUser.toLowerCase();
-        localStorage.setItem('sprint_my_identity', myIdentity);
-    } else {
-        myIdentity = localStorage.getItem('sprint_my_identity') || 'madhav';
-    }
-    viewTarget = myIdentity; // Default to viewing own checklist
-
-    function setMyIdentity(user) {
-        myIdentity = user;
-        localStorage.setItem('sprint_my_identity', user);
-        viewTarget = user; // Automatically show own checklist on identity switch
-        updateUI();
+    function switchProfile(user) {
+        currentViewing = user;
+        renderChecklist();
     }
 
-    function setViewTarget(target) {
-        viewTarget = target;
-        updateUI();
-    }
+    function renderChecklist() {
+        const mTab = document.getElementById('tabMadhav');
+        const kTab = document.getElementById('tabMahika');
+        if (mTab) mTab.classList.toggle('active', currentViewing === 'madhav');
+        if (kTab) kTab.classList.toggle('active', currentViewing === 'mahika');
 
-    function updateUI() {
-        // Update identity buttons
-        document.getElementById('roleBtnMadhav').classList.toggle('active', myIdentity === 'madhav');
-        document.getElementById('roleBtnMahika').classList.toggle('active', myIdentity === 'mahika');
-
-        // Update view buttons
-        document.getElementById('viewBtnMadhav').classList.toggle('active', viewTarget === 'madhav');
-        document.getElementById('viewBtnMahika').classList.toggle('active', viewTarget === 'mahika');
-
-        // Check if viewing own vs partner
-        const isEditingSelf = (myIdentity === viewTarget);
-        const banner = document.getElementById('readOnlyBanner');
-        if (banner) {
-            banner.style.display = isEditingSelf ? 'none' : 'block';
-            document.getElementById('bannerMyName').textContent = (myIdentity === 'madhav' ? 'Madhav' : 'Mahika');
-            document.getElementById('bannerTargetName').textContent = (viewTarget === 'madhav' ? "Madhav's" : "Mahika's");
+        const isEditingSelf = (currentViewing === myDeviceUser);
+        const msgEl = document.getElementById('statusMessage');
+        if (msgEl) {
+            if (isEditingSelf) {
+                msgEl.innerHTML = `Editing as <em>${currentViewing === 'madhav' ? 'Madhav' : 'Mahika'}</em>`;
+            } else {
+                msgEl.innerHTML = `Viewing <em>${currentViewing === 'madhav' ? "Madhav's" : "Mahika's"}</em> progress (read-only)`;
+            }
         }
 
-        // Render checkboxes for viewTarget
-        const targetData = localCache[viewTarget] || {};
+        const activeData = cloudData[currentViewing] || {};
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach((cb, idx) => {
             const key = 'cb_' + idx;
-            cb.checked = !!targetData[key];
-            cb.disabled = !isEditingSelf; // Prevent tampering with partner's data!
+            cb.checked = !!activeData[key];
+            cb.disabled = !isEditingSelf; // Prevent tampering with partner's checklist!
         });
 
-        updateScoreDisplays();
+        updateScores();
     }
 
-    function updateScoreDisplays() {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const total = checkboxes.length;
-
-        const countUser = (u) => {
-            const data = localCache[u] || {};
-            return Object.values(data).filter(Boolean).length;
-        };
-
-        const mCount = countUser('madhav');
-        const kCount = countUser('mahika');
+    function updateScores() {
+        const total = document.querySelectorAll('input[type="checkbox"]').length;
+        const count = (u) => Object.values(cloudData[u] || {}).filter(Boolean).length;
+        
+        const mCount = count('madhav');
+        const kCount = count('mahika');
 
         const mPct = total > 0 ? Math.round((mCount / total) * 100) : 0;
         const kPct = total > 0 ? Math.round((kCount / total) * 100) : 0;
 
-        const mEl = document.getElementById('scoreMadhav');
-        const kEl = document.getElementById('scoreMahika');
-        if (mEl) mEl.textContent = `${mCount} / ${total} (${mPct}%)`;
-        if (kEl) kEl.textContent = `${kCount} / ${total} (${kPct}%)`;
+        const mScore = document.getElementById('scoreMadhav');
+        const kScore = document.getElementById('scoreMahika');
+        if (mScore) mScore.textContent = `${mCount} / ${total} (${mPct}%)`;
+        if (kScore) kScore.textContent = `${kCount} / ${total} (${kPct}%)`;
     }
 
-    async function fetchCloudData(force = false) {
-        setSyncStatus('busy', 'Syncing...');
+    function parseIndices(raw) {
+        const result = {};
+        if (raw && typeof raw === 'string' && raw !== 'none' && raw !== '""') {
+            // strip surrounding quotes if any
+            const clean = raw.replace(/^"+|"+$/g, '').trim();
+            if (clean && clean !== 'none') {
+                const parts = clean.split('_');
+                parts.forEach(p => {
+                    if (p) result['cb_' + p] = true;
+                });
+            }
+        }
+        return result;
+    }
+
+    async function fetchCloudData() {
+        setSyncIndicator('busy', 'Syncing...');
         try {
             const [mRes, kRes] = await Promise.all([
-                fetch(CLOUD_ENDPOINTS.madhav),
-                fetch(CLOUD_ENDPOINTS.mahika)
+                fetch(`${KV_BASE}/GetValue/${APP_KEY}/madhav`),
+                fetch(`${KV_BASE}/GetValue/${APP_KEY}/mahika`)
             ]);
             if (mRes.ok) {
-                const mJson = await mRes.json();
-                if (mJson.data) localCache.madhav = mJson.data;
+                const mRaw = await mRes.json();
+                cloudData.madhav = parseIndices(mRaw);
             }
             if (kRes.ok) {
-                const kJson = await kRes.json();
-                if (kJson.data) localCache.mahika = kJson.data;
+                const kRaw = await kRes.json();
+                cloudData.mahika = parseIndices(kRaw);
             }
-            // Cache locally
-            localStorage.setItem('sprint_cache_madhav', JSON.stringify(localCache.madhav));
-            localStorage.setItem('sprint_cache_mahika', JSON.stringify(localCache.mahika));
-            updateUI();
-            setSyncStatus('ok', 'Synced');
+            localStorage.setItem('sprint_cache_madhav', JSON.stringify(cloudData.madhav));
+            localStorage.setItem('sprint_cache_mahika', JSON.stringify(cloudData.mahika));
+            renderChecklist();
+            setSyncIndicator('ok', 'Synced');
         } catch (err) {
-            console.warn("Sync failed, using cached state", err);
-            setSyncStatus('ok', 'Offline');
+            setSyncIndicator('ok', 'Offline');
         }
     }
 
     async function saveMyData() {
         if (isSaving) return;
         isSaving = true;
-        setSyncStatus('busy', 'Saving...');
+        setSyncIndicator('busy', 'Saving...');
 
-        const endpoint = CLOUD_ENDPOINTS[myIdentity];
-        const dataToSave = localCache[myIdentity] || {};
+        const targetUser = myDeviceUser;
+        const active = cloudData[targetUser] || {};
+        const checkedIndices = Object.keys(active)
+            .filter(k => active[k])
+            .map(k => k.replace('cb_', ''));
+        
+        const payload = (checkedIndices.length > 0) ? checkedIndices.join('_') : 'none';
 
         try {
-            await fetch(endpoint, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: "placement_" + myIdentity,
-                    data: dataToSave
-                })
+            await fetch(`${KV_BASE}/UpdateValue/${APP_KEY}/${targetUser}/${payload}`, {
+                method: "POST",
+                body: ""
             });
-            setSyncStatus('ok', 'Saved');
-        } catch (err) {
-            console.error("Cloud save failed", err);
-            setSyncStatus('ok', 'Local saved');
+            setSyncIndicator('ok', 'Synced');
+        } catch (e) {
+            setSyncIndicator('ok', 'Saved local');
         } finally {
             isSaving = false;
         }
     }
 
-    function setSyncStatus(state, text) {
-        const dot = document.getElementById('syncDot');
-        const label = document.getElementById('syncText');
-        if (dot) {
-            dot.className = (state === 'busy') ? 'sync-dot busy' : 'sync-dot';
-        }
-        if (label) {
-            label.textContent = text;
-        }
+    function setSyncIndicator(state, text) {
+        const el = document.getElementById('syncStatus');
+        if (!el) return;
+        el.textContent = text;
+        el.className = (state === 'busy') ? 'partner-sync-indicator busy' : 'partner-sync-indicator';
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        // Load fallback cache
         try {
-            const mCached = localStorage.getItem('sprint_cache_madhav');
-            if (mCached) localCache.madhav = JSON.parse(mCached);
-            const kCached = localStorage.getItem('sprint_cache_mahika');
-            if (kCached) localCache.mahika = JSON.parse(kCached);
+            const mC = localStorage.getItem('sprint_cache_madhav');
+            if (mC) cloudData.madhav = JSON.parse(mC);
+            const kC = localStorage.getItem('sprint_cache_mahika');
+            if (kC) cloudData.mahika = JSON.parse(kC);
         } catch (e) {}
 
-        // Attach change listeners to all checkboxes
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach((cb, idx) => {
             const key = 'cb_' + idx;
             cb.addEventListener('change', () => {
-                if (myIdentity === viewTarget) {
-                    localCache[myIdentity][key] = cb.checked;
-                    localStorage.setItem('sprint_cache_' + myIdentity, JSON.stringify(localCache[myIdentity]));
-                    updateScoreDisplays();
+                if (currentViewing === myDeviceUser) {
+                    cloudData[myDeviceUser][key] = cb.checked;
+                    localStorage.setItem('sprint_cache_' + myDeviceUser, JSON.stringify(cloudData[myDeviceUser]));
+                    updateScores();
                     saveMyData();
                 }
             });
         });
 
-        updateUI();
+        renderChecklist();
         fetchCloudData();
 
-        // Auto-refresh partner's progress every 20 seconds and on tab focus
+        // Auto refresh partner progress every 20s and on tab focus
         setInterval(fetchCloudData, 20000);
         window.addEventListener('focus', () => fetchCloudData());
     });
 </script>
+
+
 
 
 </body>
