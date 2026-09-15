@@ -585,6 +585,140 @@
         margin: 5px 0;
     }
 
+
+    /* DUAL PROFILE ACCOUNTABILITY BAR */
+    .accountability-bar {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 12px 18px;
+        margin-bottom: 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        box-shadow: 0 2px 8px rgba(40, 45, 38, 0.06);
+    }
+
+    .accountability-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .acc-label {
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    .user-pill-btn {
+        font-family: Georgia, serif;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 5px 12px;
+        border-radius: 3px;
+        border: 1px solid var(--border);
+        background: #faf8f5;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 0.12s ease;
+    }
+
+    .user-pill-btn:hover {
+        background: #f0ece1;
+    }
+
+    .user-pill-btn.active {
+        background: #243c3a;
+        color: #ffffff;
+        border-color: #243c3a;
+    }
+
+    .scores-group {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .score-chip {
+        background: #fdfbf7;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 4px 10px;
+        font-size: 12.5px;
+    }
+
+    .score-chip.madhav strong {
+        color: #243c3a;
+    }
+
+    .score-chip.mahika strong {
+        color: #426b83;
+    }
+
+    .sync-status-indicator {
+        font-size: 12px;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .sync-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #10b981;
+    }
+
+    .sync-dot.busy {
+        background: #f59e0b;
+        animation: pulse 1s infinite;
+    }
+
+    .refresh-icon-btn {
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 3px 8px;
+        font-size: 11.5px;
+        color: var(--muted);
+        cursor: pointer;
+    }
+
+    .refresh-icon-btn:hover {
+        background: #faf8f5;
+        color: var(--text);
+    }
+
+    .read-only-banner {
+        display: none;
+        background: #e7eef2;
+        border: 1px solid #426b83;
+        border-left: 4px solid #426b83;
+        color: #1e3340;
+        padding: 10px 16px;
+        border-radius: 3px;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+    .read-only-banner strong {
+        color: #12212b;
+    }
+
+    @keyframes pulse {
+        0% { opacity: 0.4; }
+        50% { opacity: 1; }
+        100% { opacity: 0.4; }
+    }
+    
 </style>
 </head>
 
@@ -593,6 +727,40 @@
 
 <div class="container">
 
+
+    <!-- DUAL-PROFILE ACCOUNTABILITY BAR -->
+    <div class="accountability-bar">
+        <div class="accountability-group">
+            <span class="acc-label">My Profile:</span>
+            <button type="button" class="user-pill-btn" id="roleBtnMadhav" onclick="setMyIdentity('madhav')">Madhav</button>
+            <button type="button" class="user-pill-btn" id="roleBtnMahika" onclick="setMyIdentity('mahika')">Mahika</button>
+        </div>
+
+        <div class="accountability-group">
+            <span class="acc-label">Viewing:</span>
+            <button type="button" class="user-pill-btn" id="viewBtnMadhav" onclick="setViewTarget('madhav')">Madhav's Plan</button>
+            <button type="button" class="user-pill-btn" id="viewBtnMahika" onclick="setViewTarget('mahika')">Mahika's Plan</button>
+        </div>
+
+        <div class="scores-group">
+            <div class="score-chip madhav">
+                Madhav: <strong id="scoreMadhav">0 / 70</strong>
+            </div>
+            <div class="score-chip mahika">
+                Mahika: <strong id="scoreMahika">0 / 70</strong>
+            </div>
+            <div class="sync-status-indicator">
+                <span class="sync-dot" id="syncDot"></span>
+                <span id="syncText">Synced</span>
+                <button type="button" class="refresh-icon-btn" onclick="fetchCloudData(true)">Sync</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="read-only-banner" id="readOnlyBanner">
+        <strong>Transparency Mode (Read-Only):</strong> You are logged in as <span id="bannerMyName">Madhav</span>, viewing <span id="bannerTargetName">Mahika's</span> progress. Checkboxes cannot be altered here to prevent tampering with each other's work. Switch back to your own plan to edit.
+    </div>
+    
 <!-- HERO -->
 
 <section class="hero">
@@ -2276,21 +2444,191 @@ Stop accumulating theory. Start simulating the actual placement environment.
 
 </div>
  
+
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    const CLOUD_ENDPOINTS = {
+        madhav: "https://api.restful-api.dev/objects/ff808181a09d98f701a0a34fa3fb0ad8",
+        mahika: "https://api.restful-api.dev/objects/ff808181a09d98f701a0a34fa5370ad9"
+    };
+
+    // State
+    let myIdentity = 'madhav';
+    let viewTarget = 'madhav';
+    let localCache = {
+        madhav: {},
+        mahika: {}
+    };
+    let isSaving = false;
+
+    // Detect user from URL query (?user=mahika or ?user=madhav)
+    const urlParams = new URLSearchParams(window.location.search);
+    const queryUser = urlParams.get('user');
+    if (queryUser && (queryUser.toLowerCase() === 'mahika' || queryUser.toLowerCase() === 'madhav')) {
+        myIdentity = queryUser.toLowerCase();
+        localStorage.setItem('sprint_my_identity', myIdentity);
+    } else {
+        myIdentity = localStorage.getItem('sprint_my_identity') || 'madhav';
+    }
+    viewTarget = myIdentity; // Default to viewing own checklist
+
+    function setMyIdentity(user) {
+        myIdentity = user;
+        localStorage.setItem('sprint_my_identity', user);
+        viewTarget = user; // Automatically show own checklist on identity switch
+        updateUI();
+    }
+
+    function setViewTarget(target) {
+        viewTarget = target;
+        updateUI();
+    }
+
+    function updateUI() {
+        // Update identity buttons
+        document.getElementById('roleBtnMadhav').classList.toggle('active', myIdentity === 'madhav');
+        document.getElementById('roleBtnMahika').classList.toggle('active', myIdentity === 'mahika');
+
+        // Update view buttons
+        document.getElementById('viewBtnMadhav').classList.toggle('active', viewTarget === 'madhav');
+        document.getElementById('viewBtnMahika').classList.toggle('active', viewTarget === 'mahika');
+
+        // Check if viewing own vs partner
+        const isEditingSelf = (myIdentity === viewTarget);
+        const banner = document.getElementById('readOnlyBanner');
+        if (banner) {
+            banner.style.display = isEditingSelf ? 'none' : 'block';
+            document.getElementById('bannerMyName').textContent = (myIdentity === 'madhav' ? 'Madhav' : 'Mahika');
+            document.getElementById('bannerTargetName').textContent = (viewTarget === 'madhav' ? "Madhav's" : "Mahika's");
+        }
+
+        // Render checkboxes for viewTarget
+        const targetData = localCache[viewTarget] || {};
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach((cb, idx) => {
-            const key = 'placement_plan_cb_' + idx;
-            const saved = localStorage.getItem(key);
-            if (saved === 'true') {
-                cb.checked = true;
+            const key = 'cb_' + idx;
+            cb.checked = !!targetData[key];
+            cb.disabled = !isEditingSelf; // Prevent tampering with partner's data!
+        });
+
+        updateScoreDisplays();
+    }
+
+    function updateScoreDisplays() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const total = checkboxes.length;
+
+        const countUser = (u) => {
+            const data = localCache[u] || {};
+            return Object.values(data).filter(Boolean).length;
+        };
+
+        const mCount = countUser('madhav');
+        const kCount = countUser('mahika');
+
+        const mPct = total > 0 ? Math.round((mCount / total) * 100) : 0;
+        const kPct = total > 0 ? Math.round((kCount / total) * 100) : 0;
+
+        const mEl = document.getElementById('scoreMadhav');
+        const kEl = document.getElementById('scoreMahika');
+        if (mEl) mEl.textContent = `${mCount} / ${total} (${mPct}%)`;
+        if (kEl) kEl.textContent = `${kCount} / ${total} (${kPct}%)`;
+    }
+
+    async function fetchCloudData(force = false) {
+        setSyncStatus('busy', 'Syncing...');
+        try {
+            const [mRes, kRes] = await Promise.all([
+                fetch(CLOUD_ENDPOINTS.madhav),
+                fetch(CLOUD_ENDPOINTS.mahika)
+            ]);
+            if (mRes.ok) {
+                const mJson = await mRes.json();
+                if (mJson.data) localCache.madhav = mJson.data;
             }
+            if (kRes.ok) {
+                const kJson = await kRes.json();
+                if (kJson.data) localCache.mahika = kJson.data;
+            }
+            // Cache locally
+            localStorage.setItem('sprint_cache_madhav', JSON.stringify(localCache.madhav));
+            localStorage.setItem('sprint_cache_mahika', JSON.stringify(localCache.mahika));
+            updateUI();
+            setSyncStatus('ok', 'Synced');
+        } catch (err) {
+            console.warn("Sync failed, using cached state", err);
+            setSyncStatus('ok', 'Offline');
+        }
+    }
+
+    async function saveMyData() {
+        if (isSaving) return;
+        isSaving = true;
+        setSyncStatus('busy', 'Saving...');
+
+        const endpoint = CLOUD_ENDPOINTS[myIdentity];
+        const dataToSave = localCache[myIdentity] || {};
+
+        try {
+            await fetch(endpoint, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: "placement_" + myIdentity,
+                    data: dataToSave
+                })
+            });
+            setSyncStatus('ok', 'Saved');
+        } catch (err) {
+            console.error("Cloud save failed", err);
+            setSyncStatus('ok', 'Local saved');
+        } finally {
+            isSaving = false;
+        }
+    }
+
+    function setSyncStatus(state, text) {
+        const dot = document.getElementById('syncDot');
+        const label = document.getElementById('syncText');
+        if (dot) {
+            dot.className = (state === 'busy') ? 'sync-dot busy' : 'sync-dot';
+        }
+        if (label) {
+            label.textContent = text;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Load fallback cache
+        try {
+            const mCached = localStorage.getItem('sprint_cache_madhav');
+            if (mCached) localCache.madhav = JSON.parse(mCached);
+            const kCached = localStorage.getItem('sprint_cache_mahika');
+            if (kCached) localCache.mahika = JSON.parse(kCached);
+        } catch (e) {}
+
+        // Attach change listeners to all checkboxes
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach((cb, idx) => {
+            const key = 'cb_' + idx;
             cb.addEventListener('change', () => {
-                localStorage.setItem(key, cb.checked);
+                if (myIdentity === viewTarget) {
+                    localCache[myIdentity][key] = cb.checked;
+                    localStorage.setItem('sprint_cache_' + myIdentity, JSON.stringify(localCache[myIdentity]));
+                    updateScoreDisplays();
+                    saveMyData();
+                }
             });
         });
+
+        updateUI();
+        fetchCloudData();
+
+        // Auto-refresh partner's progress every 20 seconds and on tab focus
+        setInterval(fetchCloudData, 20000);
+        window.addEventListener('focus', () => fetchCloudData());
     });
 </script>
+
 
 </body>
 </html>
