@@ -1,4 +1,4 @@
-# 🚀 Placement Preparation Master Roadmap & TODO List (Sept 15 – Sept 30)
+# 🚀 Placement Preparation Master Roadmap & TODO List (Sept 16 – Oct 1)
 
 > **Tech Stack Focus**: **Python 3** (Coding/DSA) & **MySQL 8.0** (DBMS)  
 > **Commitment**: ~7 Hours/Day (Self-Paced across the 4 Pillars)  
@@ -51,11 +51,11 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-# 📅 STAGE 1: Data Structures from the Ground Up (Sept 15 – Sept 20)
+# 📅 STAGE 1: Data Structures from the Ground Up (Sept 16 – Sept 21)
 
 ---
 
-### 📌 Day 1 — Monday, Sept 15: Python Core Primitives (Lists, Strings, Math)
+### 📌 Day 1 — Wednesday, Sept 16: Python Core Primitives (Lists, Strings, Math)
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Python Dynamic Arrays (Lists)**:
@@ -100,7 +100,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 2 — Tuesday, Sept 16: Dictionaries, Sets & Frequency Mapping
+### 📌 Day 2 — Thursday, Sept 17: Dictionaries, Sets & Frequency Mapping
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Hash Tables Under the Hood**:
@@ -139,7 +139,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 3 — Wednesday, Sept 17: Recursion Mechanics & Sorting Algorithms
+### 📌 Day 3 — Friday, Sept 18: Recursion Mechanics & Sorting Algorithms
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Recursion Call Stack**:
@@ -173,7 +173,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 4 — Thursday, Sept 18: Linked Lists from Scratch
+### 📌 Day 4 — Saturday, Sept 19: Linked Lists from Scratch
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Node Structure**:
@@ -221,7 +221,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 5 — Friday, Sept 19: Stacks & Queues from Scratch
+### 📌 Day 5 — Sunday, Sept 20: Stacks & Queues from Scratch
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Stack (LIFO - Last In First Out)**:
@@ -270,7 +270,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 6 — Saturday, Sept 20: Trees & Binary Search Fundamentals
+### 📌 Day 6 — Monday, Sept 21: Trees & Binary Search Fundamentals
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Tree Representation in Python**:
@@ -318,11 +318,11 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-# 📅 STAGE 2: Pattern-Based Problem Solving (Sept 21 – Sept 27)
+# 📅 STAGE 2: Pattern-Based Problem Solving (Sept 22 – Sept 28)
 
 ---
 
-### 📌 Day 7 — Sunday, Sept 21: Arrays — Two Pointers & Prefix Sum
+### 📌 Day 7 — Tuesday, Sept 22: Arrays — Two Pointers & Prefix Sum
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Kadane’s Algorithm (Maximum Subarray Sum)**:
@@ -361,7 +361,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 8 — Monday, Sept 22: Binary Search — Arrays & Search Space
+### 📌 Day 8 — Wednesday, Sept 23: Binary Search — Arrays & Search Space
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Binary Search on Rotated Sorted Array**:
@@ -398,7 +398,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 9 — Tuesday, Sept 23: Sliding Window & Two Pointers
+### 📌 Day 9 — Thursday, Sept 24: Sliding Window & Two Pointers
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Dynamic Sliding Window Mechanics**:
@@ -432,7 +432,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 10 — Wednesday, Sept 24: Linked Lists & Monotonic Stacks
+### 📌 Day 10 — Friday, Sept 25: Linked Lists & Monotonic Stacks
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Advanced Linked List Manipulation**:
@@ -464,7 +464,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 11 — Thursday, Sept 25: Binary Trees & Binary Search Trees
+### 📌 Day 11 — Saturday, Sept 26: Binary Trees & Binary Search Trees
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Lowest Common Ancestor (LCA)**:
@@ -499,7 +499,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 12 — Friday, Sept 26: Graphs — Representation, BFS & DFS
+### 📌 Day 12 — Sunday, Sept 27: Graphs — Representation, BFS & DFS
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Graph Representation**:
@@ -541,7 +541,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 13 — Saturday, Sept 27: Dynamic Programming — 1D & Grid Patterns
+### 📌 Day 13 — Monday, Sept 28: Dynamic Programming — 1D & Grid Patterns
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **When does DP apply?**
@@ -574,11 +574,11 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-# 📅 STAGE 3: Synthesis, Weak-Spot Drilling & Mock Tests (Sept 28 – Sept 30)
+# 📅 STAGE 3: Synthesis, Weak-Spot Drilling & Mock Tests (Sept 29 – Oct 1)
 
 ---
 
-### 📌 Day 14 — Sunday, Sept 28: Heaps, Greedy & Fast Revision
+### 📌 Day 14 — Tuesday, Sept 29: Heaps, Greedy & Fast Revision
 
 #### 🧠 Concept Deep-Dive & Mental Model
 1. **Priority Queue (`heapq`)**:
@@ -609,7 +609,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 15 — Monday, Sept 29: Full Placement Mock Assessment 1
+### 📌 Day 15 — Wednesday, Sept 30: Full Placement Mock Assessment 1
 
 #### 💻 Timed Online Assessment (OA) Simulation 1 (90 Minutes)
 - [ ] **Simulated Test Environment (Strict 90 Min Timer)**:
@@ -631,7 +631,7 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 ---
 
-### 📌 Day 16 — Tuesday, Sept 30: Full Placement Mock Assessment 2 & Final Review
+### 📌 Day 16 — Thursday, Oct 1: Full Placement Mock Assessment 2 & Final Review
 
 #### 💻 Timed Online Assessment (OA) Simulation 2 (90 Minutes)
 - [ ] **Simulated Test Environment (Strict 90 Min Timer)**:
@@ -660,19 +660,19 @@ idx_upper = bisect.bisect_right(sorted_arr, target)  # First index where arr[i] 
 
 Mark an `x` as you complete each day's quota:
 
-- [ ] **Day 1 (Sept 15)**: Python Primitives & Math \| Combine Two Tables \| Ratio & Proportion
-- [ ] **Day 2 (Sept 16)**: Dicts, Sets & Frequency \| Customers Who Never Order \| Work & Time
-- [ ] **Day 3 (Sept 17)**: Recursion & Sorting \| Duplicate Emails \| Pipes & Cisterns
-- [ ] **Day 4 (Sept 18)**: Linked Lists from Scratch \| Employees Earning More \| Speed, Distance & Time
-- [ ] **Day 5 (Sept 19)**: Stacks & Queues from Scratch \| Second Highest Salary \| Syllogisms
-- [ ] **Day 6 (Sept 20)**: Trees & Binary Search \| OS Processes & Scheduling \| Number Series
-- [ ] **Day 7 (Sept 21)**: Array Patterns (Kadane's, DNF, 3Sum) \| Delete Duplicate Emails \| Letter Series
-- [ ] **Day 8 (Sept 22)**: Binary Search on Answer \| OS Deadlocks \| Case Study: Linear Seating
-- [ ] **Day 9 (Sept 23)**: Sliding Window \| Department Highest Salary \| Case Study: Circular Seating
-- [ ] **Day 10 (Sept 24)**: LL & Monotonic Stack \| Department Top 3 Salaries \| P&C Part 1
-- [ ] **Day 11 (Sept 25)**: Trees & BSTs \| Computer Networks \| P&C Part 2
-- [ ] **Day 12 (Sept 26)**: Graphs BFS/DFS \| Consecutive Numbers \| Probability
-- [ ] **Day 13 (Sept 27)**: Dynamic Programming \| MySQL Placement Queries \| DI Tables & Bars
-- [ ] **Day 14 (Sept 28)**: Heaps & Greedy \| Python OOPs \| DI Pie Charts
-- [ ] **Day 15 (Sept 29)**: Full Placement Mock 1 \| OA Debrief \| Mixed Aptitude Drill
-- [ ] **Day 16 (Sept 30)**: Full Placement Mock 2 \| Final Code & Formula Consolidation \| Resume Polish
+- [ ] **Day 1 (Sept 16)**: Python Primitives & Math \| Combine Two Tables \| Ratio & Proportion
+- [ ] **Day 2 (Sept 17)**: Dicts, Sets & Frequency \| Customers Who Never Order \| Work & Time
+- [ ] **Day 3 (Sept 18)**: Recursion & Sorting \| Duplicate Emails \| Pipes & Cisterns
+- [ ] **Day 4 (Sept 19)**: Linked Lists from Scratch \| Employees Earning More \| Speed, Distance & Time
+- [ ] **Day 5 (Sept 20)**: Stacks & Queues from Scratch \| Second Highest Salary \| Syllogisms
+- [ ] **Day 6 (Sept 21)**: Trees & Binary Search \| OS Processes & Scheduling \| Number Series
+- [ ] **Day 7 (Sept 22)**: Array Patterns (Kadane's, DNF, 3Sum) \| Delete Duplicate Emails \| Letter Series
+- [ ] **Day 8 (Sept 23)**: Binary Search on Answer \| OS Deadlocks \| Case Study: Linear Seating
+- [ ] **Day 9 (Sept 24)**: Sliding Window \| Department Highest Salary \| Case Study: Circular Seating
+- [ ] **Day 10 (Sept 25)**: LL & Monotonic Stack \| Department Top 3 Salaries \| P&C Part 1
+- [ ] **Day 11 (Sept 26)**: Trees & BSTs \| Computer Networks \| P&C Part 2
+- [ ] **Day 12 (Sept 27)**: Graphs BFS/DFS \| Consecutive Numbers \| Probability
+- [ ] **Day 13 (Sept 28)**: Dynamic Programming \| MySQL Placement Queries \| DI Tables & Bars
+- [ ] **Day 14 (Sept 29)**: Heaps & Greedy \| Python OOPs \| DI Pie Charts
+- [ ] **Day 15 (Sept 30)**: Full Placement Mock 1 \| OA Debrief \| Mixed Aptitude Drill
+- [ ] **Day 16 (Oct 1)**: Full Placement Mock 2 \| Final Code & Formula Consolidation \| Resume Polish
